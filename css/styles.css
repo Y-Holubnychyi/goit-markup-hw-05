@@ -476,23 +476,18 @@ img {
 }
 
 /* Modal windows styles */
-.modal-backdrop {
+ .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  background-color: rgba(46, 47, 66, 0.4);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-backdrop.is-open {
   opacity: 1;
@@ -501,21 +496,18 @@ img {
 }
 .modal {
   position: absolute;
-  overflow: auto;
-  height: 80%;
-  max-height: 584px;
-  width: 408px;
-  /* top: 50%;
+  top: 50%;
   left: 50%;
-  min-height: 584px; */
-  padding: 72px 24px 24px;
-  transform: translate (-50%, -50%);
-  background-color: #fcfcfc;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  min-height: 584px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
-    0 2px 1px 0 rgba(0, 0, 0, 0.2);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 72px 24px 24px 24px;
 }
+
 .modal-backdrop:not(.is-open) .modal-backdrop {
   transform: translate (-50%, -100%);
 }
@@ -526,7 +518,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
+  background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   stroke: #2e2f42;
@@ -540,6 +532,12 @@ img {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  background-color: #404bbf;
+  fill: #ffffff;
+  border: none;
+}
 .modal-close-btn:hover > .modal-close-icon,
 .modal-close-btn:focus > .modal-close-icon {
   background-color: #404bbf;
@@ -554,9 +552,10 @@ img {
   letter-spacing: 0.02em;
   text-align: center;
   margin-bottom: 16px;
+  color: #2E2F42;
 }
 .review-form-field-wrapper {
-  margin-bottom: 8px;
+  margin-bottom: 16px
 }
 .review-form-field-label {
   display: block;
@@ -564,13 +563,15 @@ img {
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
+  margin-bottom: 4px;
 }
 .review-form-input {
+  outline: transparent;
   width: 100%;
   height: 40px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
+  /* background-color: transparent; */
   padding-left: 38px;
   font-size: 12px;
   line-height: 1.17;
@@ -604,11 +605,14 @@ img {
   height: 120px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
+  color: rgba(46, 47, 66, 0.4);
+  /* background-color: transparent; */
   padding: 8px 16px;
   resize: none;
   font-size: 12px;
   line-height: 1.17;
+  letter-spacing: 0.04em;
+  outline: transparent;
   color: #2e2f42;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -632,12 +636,15 @@ img {
   border-radius: 2px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   fill: transparent;
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .review-form-checkbox:checked
   + .review-form-checkbox-label
   > .review-form-custom-checkbox {
   background-color: #404bbf;
   fill: #f4f4fd;
+  border: none;
 }
 .review-form-checkbox:focus
   + .review-form-checkbox-label
@@ -657,16 +664,22 @@ img {
   color: #4d5ae5;
 }
 .review-form-submit-btn {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   min-width: 169px;
   height: 56px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
   font-size: 16px;
   padding: 16px 32px;
   border: none;
   border-radius: 4px;
-  background-color: #e7e9fc;
+  background-color: #4D5AE5;
   color: #2e2f42;
-  transition: color 250ms linear, background-color 250ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .review-form-submit-btn:hover,
@@ -750,8 +763,8 @@ img {
 .subscribe-btn {
   display: flex;
   background-color: #4d5ae5;
-  /* font-family: "Roboto", sans-serif;
-    font-weight: 500; */
+  /* font-family: "Roboto", sans-serif; */
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
