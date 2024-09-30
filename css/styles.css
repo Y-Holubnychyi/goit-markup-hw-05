@@ -714,7 +714,8 @@ img {
 }
 .subscribe-btn:hover,
 .subscribe-btn:focus {
-  background-color: #404bbf;
+  /* background-color: #404bbf; */
+  background-color: #31d0aa;
 }
 .subscribe-icon {
   display: flex;
